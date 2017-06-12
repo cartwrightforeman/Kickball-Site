@@ -1,0 +1,8 @@
+<h1>Positions</h1>
+<h3><a href="/">Home</a></h3>
+<h3><a href="/teams">Teams</a></h3>
+<ul>
+  <% @positions.each do |position| %>
+    <li><a href="/positions/<%= position %>"><%= position %></a></li>
+  <% end %>
+</ul>

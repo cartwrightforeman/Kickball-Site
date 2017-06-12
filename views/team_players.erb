@@ -3,6 +3,7 @@
     playername: position -->
 
 <h1><%= @team.name %></h1>
+<h3><a href="/teams/">Teams</a></h3>
 <ul>
   <% @players.each do |player| %>
     <li><%= "<b>#{player.name}</b>: #{player.position}" %></li>
