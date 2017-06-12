@@ -5,3 +5,6 @@ require "capybara/rspec"
 require_relative "../app"
 
 Capybara.app = Sinatra::Application
+
+require_relative "../models/player"
+require_relative "../models/team"
