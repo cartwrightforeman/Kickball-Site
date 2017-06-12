@@ -4,15 +4,16 @@ require_relative "player"
 class Team
   attr_reader :name
 
-  @@teams = []
-
   def initialize(name)
     @name = name
-    @@teams << self
   end
 
   def self.all
-    @@teams
+    teams = []
+    TeamData::ROLL_CALL.each do |team_name, roster|
+      teams << Team.new(team_name.to_s)
+    end
+    teams
   end
 
   def players
@@ -20,12 +21,4 @@ class Team
       player.team_name == @name
     end
   end
-
-  def self.parse
-    TeamData::ROLL_CALL.each do |team_name, roster|
-      Team.new(team_name.to_s)
-    end
-  end
 end
-
-Team.parse
