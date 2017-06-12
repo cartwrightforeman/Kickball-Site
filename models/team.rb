@@ -11,9 +11,21 @@ class Team
     @@teams << self
   end
 
-  # TeamData::ROLL_CALL
-
   def self.all
     @@teams
   end
+
+  def players
+    Player.all.select do |player|
+      player.team_name == @name
+    end
+  end
+
+  def self.parse
+    TeamData::ROLL_CALL.each do |team_name, roster|
+      Team.new(team_name.to_s)
+    end
+  end
 end
+
+Team.parse
